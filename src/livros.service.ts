@@ -38,8 +38,13 @@ export class LivrosService {
     }
 
     async apagar(id: number) {
-        const livro: Livro = await this.obterUm(id)
-        livro.destroy();
+        try {
+            
+            const livro: Livro = await this.obterUm(id)
+            livro.destroy();
+        } catch (error) {
+            throw error
+        }
 
    }
 }

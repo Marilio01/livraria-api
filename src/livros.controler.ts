@@ -34,6 +34,11 @@ export class LivrosController{
 
    @Delete(':id')
   async apagar(@Param() params){
+   console.log("entrou aqui")
+   try {
+      
       this.livrosService.apagar(params.id);
+   } catch (error) {
+   }
    }
 }
