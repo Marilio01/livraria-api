@@ -1,4 +1,3 @@
-
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { Livro } from "./livro.model";
 import { InjectModel } from "@nestjs/sequelize";
@@ -38,13 +37,8 @@ export class LivrosService {
     }
 
     async apagar(id: number) {
-        try {
-            
-            const livro: Livro = await this.obterUm(id)
-            livro.destroy();
-        } catch (error) {
-            throw error
-        }
+        const livro: Livro = await this.obterUm(id)
+        livro.destroy();
 
    }
 }
