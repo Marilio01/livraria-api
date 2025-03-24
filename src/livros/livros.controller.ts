@@ -6,19 +6,16 @@ import { LivrosService } from "./livros.service";
 @Controller('livros')
 export class LivrosController{
 
-    constructor(private livrosService: LivrosService){
+   constructor(private livrosService: LivrosService){}
 
-    }
-
-   
-   
-    @Get()
+   @Get()
    async obertTodos(): Promise<Livro[]> {
-        return this.livrosService.obterTodos();
+      return this.livrosService.obterTodos();
    }
-    @Get(':id')
-    async obterUm(@Param() params): Promise< Livro> {
-        return this.livrosService.obterUm(params.id);
+
+   @Get(':id')
+   async obterUm(@Param() params): Promise< Livro> {
+      return this.livrosService.obterUm(params.id);
 
    }
 

@@ -1,11 +1,8 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { LivrosController } from './livros.controler';
-import { LivrosService } from './livros.service';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { Livro } from './livro.model';
 import { ConfigModule } from '@nestjs/config/dist/config.module';
+import { MensagemModule } from './Mensagem/mensagem.module';
+import { LivrosModule } from './livros/livros.module';
 
 @Module({imports:[
       ConfigModule.forRoot(),
@@ -19,9 +16,10 @@ import { ConfigModule } from '@nestjs/config/dist/config.module';
         autoLoadModels: true,
         synchronize: true,
       }),
-      SequelizeModule.forFeature([Livro])
+      MensagemModule,
+      LivrosModule,
     ],
-  controllers: [AppController, LivrosController],
-  providers: [AppService, LivrosService],
+  controllers: [],
+  providers: []
 })
 export class AppModule {}
