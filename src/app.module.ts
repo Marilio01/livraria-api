@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { ConfigModule } from '@nestjs/config/dist/config.module';
-import { MensagemModule } from './Mensagem/mensagem.module';
 import { LivrosModule } from './livros/livros.module';
 
 @Module({imports:[
@@ -16,8 +15,7 @@ import { LivrosModule } from './livros/livros.module';
         autoLoadModels: true,
         synchronize: true,
       }),
-      MensagemModule,
-      LivrosModule,
+      LivrosModule
     ],
   controllers: [],
   providers: []

@@ -21,9 +21,10 @@ export class LivrosService {
        return livro;
     }
 
-    async criar(livro:Livro) {
-        this.livroModel.create(livro);
-    }
+    async criar(livro: Livro) {
+        const novoLivro = await this.livroModel.create(livro);
+        return novoLivro;
+    }    
 
     async alterar(livro:Livro):Promise<number> {
         const [affectedCount] = await this.livroModel.update(livro, {

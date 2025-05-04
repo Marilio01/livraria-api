@@ -20,11 +20,12 @@ export class LivrosController{
    }
 
    @Post()
-   async criar(@Body() livro: Livro){
-      this.livrosService.criar(livro);
-   }
+   async criar(@Body() livro: Livro) {
+       const novoLivro = await this.livrosService.criar(livro);
+       return novoLivro;
+   }   
 
-   @Put()
+   @Put(':id')
    async alterar(@Body() livro:Livro):Promise<number> {
       return this.livrosService.alterar(livro);
    }
