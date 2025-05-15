@@ -1,4 +1,4 @@
-import { Table, Model, Column, DataType, AllowNull } from "sequelize-typescript";
+import { Table, Model, Column, DataType } from "sequelize-typescript";
 
 @Table
 export class Livro extends Model<Livro> {
@@ -6,8 +6,16 @@ export class Livro extends Model<Livro> {
     @Column({
         type: DataType.STRING(100),
         allowNull: false,
+        unique: true,
     })
     titulo: string;
+
+    @Column({
+        type: DataType.STRING(100),
+        allowNull: false,
+        unique: true,
+    })
+    tituloNormalizado: string;
 
     @Column({
         type: DataType.STRING(100),
@@ -24,6 +32,7 @@ export class Livro extends Model<Livro> {
     @Column({
         type: DataType.STRING(20),
         allowNull: true,
+        unique: true,
     })
     isbn: string;
 
@@ -57,4 +66,3 @@ export class Livro extends Model<Livro> {
     })
     imagemUrl: string;
 }
-
