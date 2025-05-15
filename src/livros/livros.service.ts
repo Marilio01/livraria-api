@@ -1,13 +1,14 @@
 import { Injectable, NotFoundException, BadRequestException } from "@nestjs/common";
 import { Livro } from "./livro.model";
 import { InjectModel } from "@nestjs/sequelize";
+import { Op } from 'sequelize';
 
 @Injectable()
 export class LivrosService {
     constructor(
         @InjectModel(Livro)
         private livroModel: typeof Livro
-    ) { }
+    ) {}
 
     private normalizarTexto(texto: string): string {
         return texto
@@ -55,11 +56,36 @@ export class LivrosService {
     }
 
     async alterar(livro: Livro): Promise<number> {
+        const tituloNormalizado = this.normalizarTexto(livro.titulo);
+
+        const tituloExiste = await this.livroModel.findOne({
+            where: {
+                tituloNormalizado,
+                id: { [Op.ne]: livro.id }
+            },
+        });
+        if (tituloExiste) {
+            throw new BadRequestException('Título já cadastrado.');
+        }
+
+        const isbnExiste = await this.livroModel.findOne({
+            where: {
+                isbn: livro.isbn,
+                id: { [Op.ne]: livro.id }
+            },
+        });
+        if (isbnExiste) {
+            throw new BadRequestException('ISBN já cadastrado.');
+        }
+
+        livro.tituloNormalizado = tituloNormalizado;
+
         const [affectedCount] = await this.livroModel.update(livro, {
             where: {
-                id: livro.id
-            }
+                id: livro.id,
+            },
         });
+
         return affectedCount;
     }
 
