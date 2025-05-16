@@ -1,4 +1,4 @@
-# 📚 **Livraria API**  
+# 📚 **Livraria API**
 
 Este é um projeto simples de uma **Livraria** construída com o framework **NestJS**. A API oferece as seguintes funcionalidades:
 
@@ -15,8 +15,8 @@ Este é um projeto simples de uma **Livraria** construída com o framework **Nes
 Antes de iniciar a instalação, verifique se você possui os seguintes itens instalados:
 
 - **[Node.js](https://nodejs.org/)** (versão recomendada: LTS)
-- **[MySQL](https://www.mysql.com/)** 
-- **[Git](https://git-scm.com/)** 
+- **[MySQL](https://www.mysql.com/)**
+- **[Git](https://git-scm.com/)**
 - **[Insomnia](https://insomnia.rest/)** (para testar as requisições da API)
 
 ### ⚙️ **Instalação**
@@ -55,20 +55,20 @@ Antes de iniciar a instalação, verifique se você possui os seguintes itens in
 
 1. **Crie um banco de dados MySQL manualmente ou use o comando abaixo no MySQL:**
 
-   ```bash
+   ```sql
    CREATE DATABASE livraria;
    ```
 
-   >_Se você escolher outro nome para o banco de dados, lembre-se de alterar a configuração no arquivo `appModule` no código._
+   > _Se você escolher outro nome para o banco de dados, lembre-se de alterar a configuração no arquivo `appModule` no código._
 
 2. **Configure as credenciais do banco de dados no arquivo `.env` na raiz do projeto. Se o arquivo não existir, crie-o com as seguintes configurações:**
 
-   ```bash
+   ```env
    MEU_USUARIO_BANCO_DADOS=seu_usuario
    MINHA_SENHA_BANCO_DADOS=sua_senha
    ```
 
-### 🚀 **Execução do Projeto**
+## 🚀 **Execução do Projeto**
 
 1. **Para iniciar o servidor NestJS, execute o seguinte comando:**
 
@@ -82,11 +82,16 @@ Antes de iniciar a instalação, verifique se você possui os seguintes itens in
    npm run start:dev
    ```
 
-O projeto será executado na porta padrão **3000**, podendo ser acessado no seguinte endereço:
+3. O projeto será executado na porta padrão **3000**, podendo ser acessado no seguinte endereço:
 
-```bash
-http://localhost:3000
-```
+   ```url
+   http://localhost:3000
+   ```
+
+## 💻 Front-end
+
+Este back-end possui um front-end Angular separado que consome esta API.  
+Para rodar o sistema completo, clone e execute o front-end disponível em: [https://github.com/joao769/livraria-api-web](https://github.com/joao769/livraria-api-web)
 
 ## 🧪 **Testando a API com o Insomnia**
 
