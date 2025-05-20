@@ -4,21 +4,21 @@ import { Table, Model, Column, DataType } from "sequelize-typescript";
 export class Livro extends Model<Livro> {
 
     @Column({
-        type: DataType.STRING(100),
+        type: DataType.STRING(250),
         allowNull: false,
         unique: true,
     })
     titulo: string;
 
     @Column({
-        type: DataType.STRING(100),
+        type: DataType.STRING(250),
         allowNull: false,
         unique: true,
     })
     tituloNormalizado: string;
 
     @Column({
-        type: DataType.STRING(100),
+        type: DataType.STRING(250),
         allowNull: false,
     })
     autor: string;
@@ -30,7 +30,7 @@ export class Livro extends Model<Livro> {
     anoPublicacao: number;
 
     @Column({
-        type: DataType.STRING(20),
+        type: DataType.STRING(13),
         allowNull: true,
         unique: true,
     })
