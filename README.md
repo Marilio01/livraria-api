@@ -14,6 +14,7 @@ Este é um projeto simples de uma **Livraria** construída com o framework **Nes
 
 Antes de iniciar a instalação, verifique se você possui os seguintes itens instalados:
 
+
 - **[Node.js](https://nodejs.org/)** (versão recomendada: LTS)
 - **[MySQL](https://www.mysql.com/)**
 - **[Git](https://git-scm.com/)**
